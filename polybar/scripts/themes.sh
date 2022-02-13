@@ -12,27 +12,27 @@ BBG="#90"
 
 # Change colors
 change_color() {
-	sed -i -e "s/background = #.*/background = $BBG/g" $PFILE
-	sed -i -e 's/foreground = #.*/foreground = #FFFFFF/g' $PFILE
+	sed -i -e "s/background =.*/background = $BBG/g" $PFILE
+	sed -i -e 's/foreground =.*/foreground = #FFFFFF/g' $PFILE
 	sed -i -e 's/foreground-alt = #.*/foreground-alt = #FFFFFF/g' $PFILE
-	sed -i -e "s/shade1 = #.*/shade1 = $SH1/g" $PFILE
-	sed -i -e "s/shade2 = #.*/shade2 = $SH2/g" $PFILE
-	sed -i -e "s/shade3 = #.*/shade3 = $SH3/g" $PFILE
-	sed -i -e "s/shade4 = #.*/shade4 = $SH4/g" $PFILE
-	sed -i -e "s/shade5 = #.*/shade5 = $SH5/g" $PFILE
-	sed -i -e "s/shade6 = #.*/shade6 = $SH6/g" $PFILE
-	sed -i -e "s/shade7 = #.*/shade7 = $SH7/g" $PFILE
-	sed -i -e "s/shade8 = #.*/shade8 = $SH8/g" $PFILE
+	sed -i -e "s/shade1 =.*/shade1 = $SH1/g" $PFILE
+	sed -i -e "s/shade2 =.*/shade2 = $SH2/g" $PFILE
+	sed -i -e "s/shade3 =.*/shade3 = $SH3/g" $PFILE
+	sed -i -e "s/shade4 =.*/shade4 = $SH4/g" $PFILE
+	sed -i -e "s/shade5 =.*/shade5 = $SH5/g" $PFILE
+	sed -i -e "s/shade6 =.*/shade6 = $SH6/g" $PFILE
+	sed -i -e "s/shade7 =.*/shade7 = $SH7/g" $PFILE
+	sed -i -e "s/shade8 =.*/shade8 = $SH8/g" $PFILE
 	#####
-	sed -i -e "s/battery = #.*/battery = $battery/g" $PFILE
-	sed -i -e "s/network = #.*/network = $network/g" $PFILE
-	sed -i -e "s/date = #.*/date = $date/g" $PFILE
-	sed -i -e "s/volume = #.*/volume = $volume/g" $PFILE
-	sed -i -e "s/backlight = #.*/backlight = $backlight/g" $PFILE
-	# sed -i -e "s/workspaces = #.*/workspaces = $workspaces/g" $PFILE
-	# sed -i -e "s/workspaces_active = #.*/workspaces_active = $workspaces_active/g" $PFILE
-	# sed -i -e "s/workspaces_urgent = #.*/workspaces_urgent = $workspaces_urgent/g" $PFILE
-	# sed -i -e "s/workspaces_inactive = #.*/workspaces_inactive = $workspaces_inactive/g" $PFILE
+	sed -i -e "s/battery =.*/battery = $battery/g" $PFILE
+	sed -i -e "s/network =.*/network = $network/g" $PFILE
+	sed -i -e "s/date =.*/date = $date/g" $PFILE
+	sed -i -e "s/volume =.*/volume = $volume/g" $PFILE
+	sed -i -e "s/backlight =.*/backlight = $backlight/g" $PFILE
+	sed -i -e "s/workspaces_active =.*/workspaces_active = $workspaces_active/g" $PFILE
+	sed -i -e "s/workspaces_urgent =.*/workspaces_urgent = $workspaces_urgent/g" $PFILE
+	sed -i -e "s/workspaces_ocupied =.*/workspaces_ocupied = $workspaces_ocupied/g" $PFILE
+	sed -i -e "s/workspaces_empty =.*/workspaces_empty = $workspaces_empty/g" $PFILE
 	# sed -i -e "s/menu = #.*/menu = $menu/g" $PFILE
 
 	# rofi
@@ -57,19 +57,16 @@ EOF
 polybar-msg cmd restart
 }
 
-change_styleToBasic() {
-	sed -i -e "s/gleft = .*/gleft = ""/g" $FILE
-	sed -i -e "s/gright = .*/gright = ""/g" $FILE
-
-	polybar-msg cmd restart
-}
-
 defaultForeground(){
 	battery=$SH7
 	network=$SH7
 	date=$SH7
 	volume=$SH7
 	backlight=$SH7
+	workspaces_active=$SH3
+	workspaces_ocupied=$SH6
+	workspaces_urgent=$SH4
+	workspaces_empty=$SH7
 }
 
 rofiDefault(){
@@ -99,6 +96,13 @@ if  [[ $1 = "--Aqua_Green" ]]; then
 	SH1="#4ADEDE"	SH2="#329D9C"	SH3="#56C596"	SH4="#7BE495"
 	SH5="#CFF4D2"	SH6="#D9CAB3"	SH7="#000000"	SH8="#dce7cc"
 	defaultForeground
+	### ----------------------IMPORTANT NOTE:-----------------------------###
+	#																		#
+	#	Put custom colors if you wish to set the foreground custom colors.	#
+	#	For Background Set SH1, SH2 ... SH8.								#
+	#	Call "rofiDefault" if you setting transperancy.						#
+	#																		#
+	### ------------------------------------------------------------------###
 	change_color
 	$HOME/bin/chwall.sh $HOME/Pictures/wallpapers/minimal4.jpg
 elif  [[ $1 = "--Transperant" ]]; then
@@ -106,6 +110,7 @@ elif  [[ $1 = "--Transperant" ]]; then
 	SH5="#00"	SH6="#E5FCC2"	SH7="#FFFFFF"	SH8="#353535"
 	BBG="#00"
 	defaultForeground
+	workspaces_active="#00b9ff"
 	change_color
 	$HOME/bin/chwall.sh $HOME/Pictures/wallpapers/color1.jpg
 elif  [[ $1 = "--Vibe_Yellow" ]]; then
@@ -118,6 +123,7 @@ elif  [[ $1 = "--Something_Redish" ]]; then
 	SH1="#83AF9B"	SH2="#C8C8A9"	SH3="#F9CDAD"	SH4="#FC9D9A"
 	SH5="#FE4365"	SH6="#E5FCC2"	SH7="#000000"	SH8="#dce7cc"
 	defaultForeground
+	workspaces_empty="#F5F5F5"
 	change_color
 	$HOME/bin/chwall.sh $HOME/Pictures/wallpapers/something_Redish.jpg
 elif  [[ $1 = "--Retro_90s" ]]; then
@@ -245,19 +251,28 @@ elif  [[ $1 = "--Wonder_Women" ]]; then
 	$HOME/bin/chwall.sh $HOME/Pictures/wallpapers/wonder_women.jpg
 elif  [[ $1 = "--Black_And_White" ]]; then
 	SH1="#000000"	SH2="#000000"	SH3="#000000"	SH4="#000000"
-	SH5="#000000"	SH6="#e97309"	SH7="#FFFFFF"	SH8="#353535"
+	SH5="#000000"	SH6="#E5FCC2"	SH7="#FFFFFF"	SH8="#353535"
 	defaultForeground
+	workspaces_active="#FFFFFF"		workspaces_ocupied="#796f6f"	workspaces_empty="#FFD9D9"
 	change_color
-	$HOME/bin/chwall.sh $HOME/Pictures/wallpapers/wonder_women.jpg
+	$HOME/bin/chwall.sh $HOME/Pictures/wallpapers/color1.jpg
 elif  [[ $1 = "--Line_Minimal_ColorFull" ]]; then
 	SH1="#000000"	SH2="#000000"	SH3="#000000"	SH4="#000000"
-	SH5="#000000"	SH6="#ee3548"	SH7="#FFFFFF"	SH8="#353535"
-	battery="#512477"	network="#4e2b4c"	date="#ee3548"		volume="#f36c3f"
+	SH5="#000000"	SH6="#e97309"	SH7="#FFFFFF"	SH8="#353535"
+	defaultForeground
+	battery="#759463"	network="#00b9ff"	date="#c7ddc6"		volume="#f36c3f"
 	backlight="#f5933c"
+	workspaces_active="#FFD9D9"		workspaces_ocupied="#796f6f"	workspaces_empty="#050505"
 	change_color
 	rofiDefault
 	$HOME/bin/chwall.sh $HOME/Pictures/wallpapers/color1.jpg
-	change_styleToBasic
+elif  [[ $1 = "--Mininal_Color_Light" ]]; then
+	SH1="#145768"	SH2="#126074"	SH3="#107f93"	SH4="#078da6"
+	SH5="#45aabc"	SH6="#e97309"	SH7="#FFFFFF"	SH8="#353535"
+	defaultForeground
+	workspaces_ocupied="#d5c050" workspaces_active="#0da661"
+	change_color
+	$HOME/bin/chwall.sh $HOME/Pictures/wallpapers/color1.jpg
 else
 	cat <<- _EOF_
 	No option specified, Available options:
@@ -267,6 +282,7 @@ else
 	--Exotic_Orcids --Calm --Orange_Sunset --Purple_Garlic
 	--Kaleidoscope_Illusions --Blue_Accent --Energetic --Black_And_Bright
 	--Childs_Play --Minimal_ColorFull --Minimal_Rang --Minimal_Lake --Superman
-	--Wonder_Women --Black_And_White --Line_Minimal_ColorFull
+	--Wonder_Women --Black_And_White --Line_Minimal_ColorFull --Line_Transperant_ColorFull
+	--Mininal_Color_Light
 	_EOF_
-fi
+	fi

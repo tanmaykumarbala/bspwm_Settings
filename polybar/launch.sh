@@ -3,6 +3,8 @@
 # onlyBottom onlyTop topBottom externalBottom externalTop	externalTopBottom
 input=$1
 DIR="$HOME/.config/polybar"
+# Setting DISPLAY for POLYBAR
+$HOME/bin/setPolyBar_Monitor.sh
 # Terminate already running bar instances
 killall -q polybar
 # Wait until the processes have been shut down
