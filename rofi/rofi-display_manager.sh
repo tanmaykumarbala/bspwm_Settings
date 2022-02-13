@@ -5,26 +5,36 @@ dir="$HOME/.config/rofi/"
 uptime=$(uptime -p | sed -e 's/up //g')
 rofi_command="rofi -theme $dir/$1"
 
+$(killall -q xrandr)
+
 # Options
-mirror=" Mirror"
-extended=" Extended"
-edp1=" Laptop"
-dp11=" External"
+mirror=" Mirror Display"
+Rextended=" Extend-Right Display"
+Lextended=" Extend-Left Display"
+Bextended=" Extend-Bottom Display"
+edp1=" Internal Display"
+dp11=" External Display"
 
 # Variable passed to rofi
-options="$mirror\n$extended\n$edp1\n$dp11"
+options="$mirror\n$Rextended\n$Lextended\n$Bextended\n$edp1\n$dp11"
 chosen="$(echo -e "$options" | $rofi_command -font "$font" -p " Display Manager " -dmenu -selected-row 0)"
 case $chosen in
 	$mirror)
 		$HOME/bin/mirror.sh
 		;;
-	$extended)
-		$HOME/bin/docked.sh
+	$Rextended)
+		$HOME/bin/docked_Right.sh
+		;;
+	$Lextended)
+		$HOME/bin/docked_Left.sh
 		;;
 	$edp1)
-		$HOME/bin/onlyeDP-1.sh
+		$HOME/bin/internal.sh
 		;;
 	$dp11)
-		$HOME/bin/DP11.sh
+		$HOME/bin/external.sh
+		;;
+	$Bextended)
+		$HOME/bin/docked_Bottom.sh
 		;;
 esac

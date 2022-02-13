@@ -3,11 +3,11 @@
 * {
 al:		#00000000;
 bg:		#353535FF;
-se:		#118C8BFF;
-red:	#BCA18DFF;
-green:	#F2746BFF;
+se:		#43978DFF;
+red:	#C6A477FF;
+green:	#F9AD6AFF;
 fg:		#FFFFFFFF;
-ac:		#F14D49FF;
+ac:		#D46C4EFF;
 yellow:	#FDD835ff;
 blue:	#42A5F5ff;
 purple:	#BA68C8ff;
