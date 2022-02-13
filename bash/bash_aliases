@@ -1,0 +1,24 @@
+# ~/.config/.startup
+# alias fire="/home/tanmay/Documents/personal/fireTV.sh"
+# alias firetv="~/Documents/personal/fireTV.sh"
+
+export EDITOR="/usr/bin/nvim"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/staf/lib"
+alias startStaf="/usr/local/staf/bin/STAFProc"
+alias filr="cd ~/Documents/filr/filr-qa/trunk"
+alias jcli="cd ~/Documents/filr/jenkins_cli"
+alias doc="cd ~/Documents"
+alias pic="cd ~/Pictures"
+alias down="cd ~/Downloads"
+alias tcs="cd /home/tanmay/Documents/filr/testcases/Filr"
+alias i3="cd /home/tanmay/.config/i3"
+alias vim="nvim"
+alias vi="nvim"
+alias e="nvim"
+alias vpnc="/home/tanmay/Documents/personal/vpn.sh"
+alias ll="ls -al"
+alias l="ls -al"
+alias ls='LC_COLLATE=C ls -h --group-directories-first --color=auto'
+[ -f ~/bin/chwall.sh ] && export PATH=$PATH':/home/tanmay/bin'
+export LC_CTYPE="en_IN.utf8"
+export TERMINAL="alacritty"

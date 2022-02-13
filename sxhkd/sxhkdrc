@@ -168,6 +168,13 @@ super + shift + p
 super + ctrl + t
 	teams
 
+# Launch mail usig rdesktop
+super + ctrl + o
+	rdesktop -D -P -E -xm -g 1280x960 164.99.111.156 -u iprint -p micro &
+	
+super + shift + o
+	xfreerdp /u:"Tanmay Bala" /v:164.99.110.157:3389 /p:"Tanmay1989@" /size:1900x1020 &
+
 # Spotify
 super + F1
 	spotify
@@ -182,13 +189,13 @@ super + F3
 super + F4
 	amixer set "Master" toggle
 
-# External Display
+# Start scrcpy
 super + F5
-	$HOME/bin/DP11.sh
+	scrcpy &
 
-# Extend Display
+# External Display
 super + F6
-	$HOME/bin/docked.sh
+	$HOME/bin/mirror.sh
 
 # Spotify
 super + F8
