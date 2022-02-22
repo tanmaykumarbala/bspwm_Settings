@@ -9,3 +9,9 @@ All dependent configurations  related to BSPWM setup
 
 
 ![](screens/screen3.png)
+
+Rofi..
+![](screens/screen5.png)
+
+Rofi-Display Menu
+![](screens/screen6.png)
