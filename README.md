@@ -8,4 +8,4 @@ All dependent configurations  related to BSPWM setup
 ![](screens/screen1.png)
 
 
-![](screens/screen2.png)
+![](screens/screen3.png)
